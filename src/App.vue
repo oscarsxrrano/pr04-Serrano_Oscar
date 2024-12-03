@@ -1,13 +1,12 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
-import HomeView from './views/HomeView.vue';
+import data from './data.json'
+import NavBar from './components/NavBar.vue';
+
 </script>
 
 <template>
-  <div>
-    <HomeView/>
-  </div>
-
+  <NavBar/>
   <RouterView/>
 </template>
 

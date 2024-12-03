@@ -9,6 +9,12 @@ const router = createRouter({
       name: 'home',
       component: HomeView,
     },
+    {
+      path: ':experience',
+      name: 'experience.view',
+      component: ()=>import('@/views/ExperienceView.vue'),
+      props:route=>({...route.params, id:parseInt(route.params.id)})
+    },
   ],
 })
 

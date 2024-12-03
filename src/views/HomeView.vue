@@ -6,7 +6,7 @@ console.log("hola")
 <template>
 
     <div>
-        <p>hola</p>
+        <p>holaSAS</p>
     </div>
 
 </template>
