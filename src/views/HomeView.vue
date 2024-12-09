@@ -1,7 +1,7 @@
 <script setup>
 console.log("hola")
 import data from "../data.json"
-import { RouterLink } from 'vue-router';
+const url = '../country/'
 </script>
 
 <template>
@@ -9,22 +9,20 @@ import { RouterLink } from 'vue-router';
         <h1>All Destinations</h1>
 
         <div class="destinations">
-            <RouterLink v-for="destination in data.destinations" 
-            :key="destination.id" 
-            :to="{
-                name: 'destination.show', 
-                params: {id: destination.id, slug:destination.slug}}">
-
-                <h2>{{ destination.name }}</h2>
-                <img :src="`/images/${destination.image}`" :alt="destination.name">
-
-            
-            </RouterLink>
+            <li v-for="(destination) in data.destinations" :key="destination.id" class="li">
+                
+                <RouterLink :to="url + destination.id" >
+                    <h2>{{ destination.name }}</h2>
+                    <img :src="'../../public/images/'  + destination.image" alt="foto-pais ">
+                </RouterLink>
+            </li>
         </div>
     </div>
 
 </template>
 
 <style scoped>
-    
+    .li {
+        list-style-type: none;
+    }
 </style>
