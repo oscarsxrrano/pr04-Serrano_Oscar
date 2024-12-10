@@ -1,11 +1,13 @@
 <script setup>
 import GoBack from '@/components/GoBack.vue';
 import ExperienceView from './ExperienceView.vue';
-import { useRouter} from 'vue-router';
+import { useRouter, useRoute} from 'vue-router';
 import data from "../data.json";
 
-const router = useRouter()
+const router = useRouter();
+const route = useRoute();
 
+const destination = data.destinations[route.params.id - 1];
 </script>
 
 <template>
@@ -14,9 +16,13 @@ const router = useRouter()
     
     <div class="destination">
         <h1>{{ data.destinations[$route.params.id - 1].name }}</h1>
-        <img :src="'../../public/images/' + data.destinations[$route.params.id - 1].image" alt="foto pais">
+        <img :src="'../../public/images/' + destination.image" alt="foto pais">
+        <p>
+            {{ destination.description }}
+        </p>
     </div>
     
-    <ExperienceView/>
+    <ExperienceView :destinationId="route.params.id"/>
+    
 
 </template>
