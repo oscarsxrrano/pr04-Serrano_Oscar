@@ -11,5 +11,13 @@ const url = '../country/'
                 {{ country.name }}
             </RouterLink>
         </ul>
-    </nav>   
+    </nav>
 </template>
+
+<style>
+.router-link-active {
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+</style>
